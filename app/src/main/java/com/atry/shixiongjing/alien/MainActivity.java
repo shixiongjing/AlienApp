@@ -34,6 +34,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.chaquo.python.Python;
+
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
@@ -127,6 +129,8 @@ public class MainActivity extends AppCompatActivity
                 //the action after the button is clicked
             }
         });
+        Python.start(new Python.Platform());
+
     }
 
     private void createCameraPreview(){
