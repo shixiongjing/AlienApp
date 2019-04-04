@@ -1,6 +1,7 @@
 package com.atry.shixiongjing.alien;
 
 import android.Manifest;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.SurfaceTexture;
@@ -35,6 +36,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
+import com.chaquo.python.android.PyApplication;
 
 import java.util.Arrays;
 
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
+
+
+
+
     TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
@@ -98,6 +105,17 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        //The test place
+        //PyApplication p3 = new PyApplication();
+//        Python.start(new AndroidPlatform(context));
+        Python py = Python.getInstance();
+        py.getModule("test").callAttr("test");
+        //the test place
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
